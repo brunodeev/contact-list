@@ -40,13 +40,16 @@ func EditContact(res http.ResponseWriter, req *http.Request){
 	}
 	
 	_ = json.NewDecoder(req.Body).Decode(&contact)
-	contact.ID = query
-	tempTime := time.Now()
-	contact.Created = tempTime.Format("02-01-2006 15:04:05")
 	
-	ContactList = append(ContactList[:index], ContactList[index+1:]...)
-	ContactList = append(ContactList[:index+1], ContactList[index:]...)
-	ContactList[index] = contact
+	if contact.Name != "" {
+		ContactList[index].Name = contact.Name
+	}
+	if contact.Phones != nil {
+		ContactList[index].Phones = contact.Phones
+	}
+	
+	tempTime := time.Now()
+	ContactList[index].Created = tempTime.Format("02-01-2006 15:04:05")
 	
 	res.Write([]byte("Atualizado com sucesso!"))
 }
