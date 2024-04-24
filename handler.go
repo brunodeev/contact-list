@@ -29,7 +29,7 @@ func EditContact(res http.ResponseWriter, req *http.Request){
 	var contact Contact
 	
 	for i, contact := range ContactList {
-		if contact.ID == query {
+		if contact.ID == query || contact.Name == query {
 			index = i
 		}
 	}
@@ -59,7 +59,7 @@ func DeleteContact(res http.ResponseWriter, req *http.Request){
 	var index int
 	
 	for i, contact := range ContactList {
-		if contact.ID == query {
+		if contact.ID == query || contact.Name == query {
 			index = i
 		}
 	}
