@@ -5,7 +5,7 @@
   <h3 align="center">Contact List</h3>
 
   <p align="center">
-    An Golang API for manage a simple contact list!
+    A Golang API for manage a simple contact list!
   </p>
 
   <br />
